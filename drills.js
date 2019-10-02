@@ -105,3 +105,20 @@ function products (arr) {
 // Output:[108, 36, 12, 27]
 
 // console.log(products([1, 3, 9, 4]));
+
+function d2Array (d2Arr) {}
+
+function stringRotation (str1, str2) {
+  if (str1.length !== str2.length) return false;
+  for (let i=0; i<str1.length; i++) {
+    if (str1[i] === str2[0]) {
+      let firstHalf = str1.slice(0, i);
+      let secondHalf = str1.slice(i, str1.length);
+      if(str2 === (secondHalf+firstHalf)) return true;
+    }
+  }
+  return false;
+}
+
+// console.log(stringRotation('amazon', 'azonma'));
+// console.log(stringRotation('amazon', 'azonam'));
