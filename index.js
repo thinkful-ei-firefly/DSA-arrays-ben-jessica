@@ -8,3 +8,4 @@ let arr = new MyArray();
 arr.push(2);
 
 console.log(arr);
+console.log(arr[0]);
