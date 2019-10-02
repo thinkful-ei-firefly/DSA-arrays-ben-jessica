@@ -25,6 +25,7 @@ function URLifyNoSplitJoin (string) {
   }
   return returnString;
 }
+//O(n)
 
 //console.log(URLifyNoSplitJoin('www.thinkful.com /tauh ida parv een'));
 
@@ -35,6 +36,7 @@ function filter(arr) {
   }
   return returnArr;
 }
+//O(n)
 
 const testArr=[1, 5, 16, 3, 8, 9, 20];
 //console.log(filter(testArr));
@@ -48,6 +50,7 @@ function maxSum(arr) {
   }
   return maxSum;
 }
+//O(n)
 
 // const sumArr = [4, 6, -3, 5, -2, 1];
 // console.log(maxSum(sumArr));
@@ -68,6 +71,7 @@ function mergeArrays(arr1, arr2) {
   }
   return returnArr;
 }
+//O(n)
 
 // const arr1 = [1, 3, 6, 8, 11];
 // const arr2 = [2, 3, 5, 8, 9, 10];
@@ -83,6 +87,7 @@ function removeCharacters (string, chars) {
   }
   return returnString;
 }
+//O(n)
 
 // const testString = 'Battle of the Vowels: Hawaii vs. Grozny';
 // const testChars = 'aeiou';
@@ -100,6 +105,7 @@ function products (arr) {
   }
   return returnArr;
 }
+//O(n)
 
 // Input:[1, 3, 9, 4]
 // Output:[108, 36, 12, 27]
@@ -107,24 +113,21 @@ function products (arr) {
 // console.log(products([1, 3, 9, 4]));
 
 function d2Array (d2Arr) {
+  let ArrCopy = d2Arr.map(arr => arr.slice());
   let y = d2Arr.length;
   let x = d2Arr[0].length;
   for (let i=0; i<y;i++) {
     for (let j=0; j<x;j++) {
       if (d2Arr[i][j] === 0) {
-        // d2Arr[i][*] =0;
-        // d2Arr[*][j] =0;
-        d2Arr.forEach((row, yIndex) => {
-          if (yIndex === i) row.forEach((val, xIndex) => {
-            if (xIndex === j) val = 0;
-          });
-        });
+        d2Arr.forEach((val, row) => ArrCopy[row][j] = 0); //Set each element in the column to zero
+        d2Arr[i].forEach((val, k) => ArrCopy[i][k] = 0); //Set each element in the row to zero
+        
       }
     }
   }
-  return d2Arr;
+  return ArrCopy;
 }
-
+//O(n^3) --- absolutely could use optimization
 
 const d2Arr = [
   [1,0,1,1,0],
@@ -153,6 +156,7 @@ function stringRotation (str1, str2) {
   }
   return false;
 }
+//O(n)
 
 // console.log(stringRotation('amazon', 'azonma'));
 // console.log(stringRotation('amazon', 'azonam'));
