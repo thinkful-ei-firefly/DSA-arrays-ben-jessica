@@ -106,7 +106,41 @@ function products (arr) {
 
 // console.log(products([1, 3, 9, 4]));
 
-function d2Array (d2Arr) {}
+function d2Array (d2Arr) {
+  let y = d2Arr.length;
+  let x = d2Arr[0].length;
+  for (let i=0; i<y;i++) {
+    for (let j=0; j<x;j++) {
+      if (d2Arr[i][j] === 0) {
+        // d2Arr[i][*] =0;
+        // d2Arr[*][j] =0;
+        d2Arr.forEach((row, yIndex) => {
+          if (yIndex === i) row.forEach((val, xIndex) => {
+            if (xIndex === j) val = 0;
+          });
+        });
+      }
+    }
+  }
+  return d2Arr;
+}
+
+
+const d2Arr = [
+  [1,0,1,1,0],
+  [0,1,1,1,0],
+  [1,1,1,1,1],
+  [1,0,1,1,1],
+  [1,1,1,1,1]
+];
+
+const zeroed = d2Array(d2Arr);
+console.log(zeroed[0]);
+console.log(zeroed[1]);
+console.log(zeroed[2]);
+console.log(zeroed[3]);
+console.log(zeroed[4]);
+
 
 function stringRotation (str1, str2) {
   if (str1.length !== str2.length) return false;
