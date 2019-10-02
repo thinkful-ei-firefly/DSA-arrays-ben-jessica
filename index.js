@@ -33,10 +33,10 @@ console.log(arr.pop());
 
 console.log(arr);
 
-//What is the length, capacity, and address of your array? 
-//Explain the result of your program after adding the new lines of code.
-//Length is now 2 (removed 3 items)
-//Memory address and capacity are the same
+// //What is the length, capacity, and address of your array? 
+// //Explain the result of your program after adding the new lines of code.
+// //Length is now 2 (removed 3 items)
+// //Memory address and capacity are the same
 
 console.log(arr.get(0));
 
@@ -47,9 +47,9 @@ while (arr.length > 0) {
 console.log(arr);
 arr.push('tauhida');
 console.log(arr.get(0));
-//The result is NaN because our memory class only accepts numbers as acceptable entries.
-//Passing text values causes it to be parsed to NaN.
+// //The result is NaN because our memory class only accepts numbers as acceptable entries.
+// //Passing text values causes it to be parsed to NaN.
 
-//The resize() function in our Array class allocates new memory based on the size of the array.
-//It copies elements of an old array to a larger memory space and updates the array capacity
-//to reflect this change.
+// //The resize() function in our Array class allocates new memory based on the size of the array.
+// //It copies elements of an old array to a larger memory space and updates the array capacity
+// //to reflect this change.

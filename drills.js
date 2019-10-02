@@ -39,4 +39,69 @@ function filter(arr) {
 const testArr=[1, 5, 16, 3, 8, 9, 20];
 //console.log(filter(testArr));
 
-function maxSum(arr) {}
+function maxSum(arr) {
+  let maxSum = arr[0];
+  let runSum = 0;
+  for (let i=0; i<arr.length; i++) {
+    runSum += arr[i];
+    if (runSum > maxSum) maxSum = runSum;
+  }
+  return maxSum;
+}
+
+// const sumArr = [4, 6, -3, 5, -2, 1];
+// console.log(maxSum(sumArr));
+
+function mergeArrays(arr1, arr2) {
+  const arr1L = arr1.length;
+  const arr2L = arr2.length;
+  let maxL;
+  const returnArr=[];
+  if (arr1L > arr2L) {
+    maxL = arr1L;
+  } else maxL = arr2L;
+  for (let i=maxL; i>=0; i--) {
+    if (arr1[arr1.length-1] >= arr2[arr2.length-1]) returnArr.push(arr1.pop());
+    if (arr1[arr1.length-1] <= arr2[arr2.length-1]) returnArr.push(arr2.pop());
+    if (!arr1[arr1.length-1] && arr2[arr2.length-1]) returnArr.push(arr2.pop());
+    if (!arr2[arr2.length-1] && arr1[arr1.length-1]) returnArr.push(arr1.pop());
+  }
+  return returnArr;
+}
+
+// const arr1 = [1, 3, 6, 8, 11];
+// const arr2 = [2, 3, 5, 8, 9, 10];
+
+// console.log(mergeArrays(arr1, arr2));
+
+function removeCharacters (string, chars) {
+  let returnString ='';
+  for (let i=0; i<string.length; i++) {
+    if (!chars.includes(string[i])) {
+      returnString += string[i];
+    }
+  }
+  return returnString;
+}
+
+// const testString = 'Battle of the Vowels: Hawaii vs. Grozny';
+// const testChars = 'aeiou';
+
+// console.log(removeCharacters(testString, testChars));
+
+
+function products (arr) {
+  let total=1;
+  for (let i=0; i<arr.length; i++) total *= arr[i];
+
+  let returnArr =[];
+  for (let i=0; i<arr.length; i++) {
+    returnArr.push(total/arr[i]);
+  }
+  return returnArr;
+}
+
+// Input:[1, 3, 9, 4]
+// Output:[108, 36, 12, 27]
+
+// console.log(products([1, 3, 9, 4]));
